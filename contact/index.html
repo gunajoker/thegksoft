@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact — GK Soft</title>
+    <meta
+      name="description"
+      content="Contact GK Soft for web development, mobile development, and testing as a service."
+    />
+    <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/assets/css/styles.css" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="/" aria-label="GK Soft Home">
+          <img
+            class="brand-mark"
+            src="/assets/img/logo.svg"
+            alt=""
+            width="32"
+            height="32"
+          />
+          <span class="brand-name">GK Soft</span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          <span class="sr-only">Toggle navigation</span>
+          <span class="nav-toggle-bars" aria-hidden="true"></span>
+        </button>
+
+        <nav id="site-nav" class="site-nav" aria-label="Primary">
+          <a class="nav-link" href="/services/">Services</a>
+          <a class="nav-link" href="/about/">About</a>
+          <a class="nav-link" href="/careers/">Careers</a>
+          <a class="nav-link nav-cta" href="/contact/" aria-current="page"
+            >Contact</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="page-hero">
+        <div class="container">
+          <p class="breadcrumbs"><a href="/">Home</a> / Contact</p>
+          <h1>Contact</h1>
+          <p>Tell us about your project. We’ll reply with next steps.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="split">
+            <div>
+              <h2>Send a message</h2>
+              <p class="lead-sm">
+                Use the form below. On Netlify, submissions will show up in your
+                site’s Forms tab.
+              </p>
+
+              <form
+                class="form"
+                name="contact"
+                method="POST"
+                data-netlify="true"
+              >
+                <input type="hidden" name="form-name" value="contact" />
+
+                <div class="field">
+                  <label for="name">Name</label>
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    autocomplete="name"
+                    required
+                  />
+                </div>
+
+                <div class="field">
+                  <label for="email">Email</label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    autocomplete="email"
+                    required
+                  />
+                </div>
+
+                <div class="field">
+                  <label for="service">Service</label>
+                  <input
+                    id="service"
+                    name="service"
+                    type="text"
+                    placeholder="Web / Mobile / Testing"
+                  />
+                </div>
+
+                <div class="field">
+                  <label for="message">Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    required
+                    placeholder="Briefly describe your project"
+                  ></textarea>
+                </div>
+
+                <button class="btn btn-primary" type="submit">Send</button>
+              </form>
+            </div>
+
+            <div>
+              <h2>Contact details</h2>
+              <div class="card">
+                <div class="kv">
+                  <div class="kv-row">
+                    <div class="kv-key">Email</div>
+                    <div class="kv-val">
+                      <a href="mailto:gunasekaran@thegksoft.com"
+                        >gunasekaran@thegksoft.com</a
+                      >
+                    </div>
+                  </div>
+                  <div class="kv-row">
+                    <div class="kv-key">Phone</div>
+                    <div class="kv-val">
+                      <a href="tel:+919159132746">+91-9159132746</a>
+                    </div>
+                  </div>
+                  <div class="kv-row">
+                    <div class="kv-key">Address</div>
+                    <div class="kv-val">
+                      370/1 RC Nagar, Othakalmandapam, Coimbatore, Tamil Nadu,
+                      India — 641032
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- <div class="notice" style="margin-top: var(--space-4)">
+                <strong>Note:</strong> If you deploy somewhere other than
+                Netlify, the contact form may need a backend or form provider.
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <div class="footer-title">GK Soft</div>
+          <div class="footer-sub">Build reliable web &amp; mobile products</div>
+        </div>
+        <div class="footer-cols">
+          <div class="footer-col">
+            <div class="footer-col-title">Pages</div>
+            <a class="footer-link" href="/services/">Services</a>
+            <a class="footer-link" href="/about/">About</a>
+            <a class="footer-link" href="/careers/">Careers</a>
+            <a class="footer-link" href="/contact/">Contact</a>
+          </div>
+          <div class="footer-col">
+            <div class="footer-col-title">Contact</div>
+            <a class="footer-link" href="mailto:gunasekaran@thegksoft.com"
+              >gunasekaran@thegksoft.com</a
+            >
+            <a class="footer-link" href="tel:+919159132746">+91-9159132746</a>
+            <div class="footer-text">370/1 RC Nagar, Othakalmandapam</div>
+            <div class="footer-text">
+              Coimbatore, Tamil Nadu, India — 641032
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <small>© <span id="year"></span> GK Soft. All rights reserved.</small>
+      </div>
+    </footer>
+
+    <script src="/assets/js/main.js" defer></script>
+  </body>
+</html>
