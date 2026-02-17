@@ -159,6 +159,19 @@ img {
   color: rgba(11, 18, 32, 0.96);
 }
 
+.nav-icon {
+  padding: 10px;
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-icon svg {
+  display: block;
+}
+
 .nav-cta {
   border: 1px solid rgba(14, 165, 233, 0.28);
   background: rgba(14, 165, 233, 0.08);
@@ -723,4 +736,16 @@ textarea:focus {
   .kv-row {
     grid-template-columns: 1fr;
   }
+}
+
+/* Products */
+
+.product-logo {
+  width: min(320px, 100%);
+  max-height: 360px;
+  height: auto;
+  margin: 0 auto var(--space-4);
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
 }

@@ -3,8 +3,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Thank you — GK Soft</title>
-    <meta name="description" content="Thank you for contacting GK Soft." />
+    <title>Products — GK Soft</title>
+    <meta
+      name="description"
+      content="Products by GK Soft — including Zulope, a salon booking app."
+    />
     <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/assets/css/styles.css" />
   </head>
@@ -37,7 +40,7 @@
 
         <nav id="site-nav" class="site-nav" aria-label="Primary">
           <a class="nav-link" href="/services/">Services</a>
-          <a class="nav-link" href="/products/">Products</a>
+          <a class="nav-link" href="/products/" aria-current="page">Products</a>
           <a class="nav-link" href="/about/">About</a>
           <a class="nav-link" href="/careers/">Careers</a>
           <a
@@ -74,35 +77,43 @@
     <main id="main">
       <section class="page-hero">
         <div class="container">
-          <p class="breadcrumbs">
-            <a href="/">Home</a> / <a href="/contact/">Contact</a> / Thanks
-          </p>
-          <h1>Thanks — we received your message</h1>
-          <p>We’ll get back to you at the email you provided.</p>
+          <p class="breadcrumbs"><a href="/">Home</a> / Products</p>
+          <h1>Products</h1>
         </div>
       </section>
 
       <section class="section">
         <div class="container">
-          <div class="cta">
-            <div class="cta-copy">
-              <h3>Need to add more details?</h3>
-              <p>Email us directly and we’ll continue from there.</p>
-            </div>
-            <a class="btn btn-primary" href="mailto:gunasekaran@thegksoft.com"
-              >Email GK Soft</a
-            >
+          <div class="section-head">
+            <h2>Zulope</h2>
           </div>
 
-          <div style="margin-top: var(--space-6)">
-            <a class="btn btn-ghost" href="/">Back to Home</a>
-            <a
-              class="btn btn-ghost"
-              href="/contact/"
-              style="margin-left: var(--space-2)"
-              >Back to Contact</a
-            >
-          </div>
+          <article class="card" aria-label="Zulope salon booking app">
+            <img
+              class="product-logo"
+              src="/assets/img/zulope.jpeg"
+              alt="Zulope logo"
+              width="640"
+              height="480"
+              loading="lazy"
+            />
+            <h3>Pure Beauty — salon booking</h3>
+            <p>
+              Zulope starts with salon appointment booking and scheduling, and
+              will expand to support spas and beauty parlors. It also will give
+              makeup artists a place to showcase their portfolio—wedding looks
+              and other major functions—so clients can discover and book with
+              confidence.
+            </p>
+
+            <div class="cta">
+              <div class="cta-copy">
+                <h3>Want a demo?</h3>
+                <p>Tell us how we can help you..</p>
+              </div>
+              <a class="btn btn-primary" href="/contact/">Contact us</a>
+            </div>
+          </article>
         </div>
       </section>
     </main>
