@@ -17,8 +17,3 @@
   from = "/about"
   to = "/about/"
   status = 301
-
-[[redirects]]
-  from = "/careers"
-  to = "/careers/"
-  status = 301
