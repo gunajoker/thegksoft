@@ -2,18 +2,52 @@
   publish = "."
   command = ""
 
-# Optional: keep clean trailing-slash URLs for folder-based pages
+[[redirects]]
+  from = "/contact/thanks/"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/contact/thanks"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/contact/"
+  to = "/"
+  status = 301
+
 [[redirects]]
   from = "/contact"
-  to = "/contact/"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/services/"
+  to = "/"
   status = 301
 
 [[redirects]]
   from = "/services"
-  to = "/services/"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/products/"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/products"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/about/"
+  to = "/"
   status = 301
 
 [[redirects]]
   from = "/about"
-  to = "/about/"
+  to = "/"
   status = 301

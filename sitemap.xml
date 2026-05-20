@@ -2,28 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://thegksoft.com/</loc>
-    <priority>1.00</priority>
-  </url>
-
-  <url>
-    <loc>https://thegksoft.com/services/</loc>
+    <loc>https://thegksoft.com/zulope/privacy-policy/</loc>
     <priority>0.90</priority>
   </url>
 
   <url>
-    <loc>https://thegksoft.com/products/</loc>
+    <loc>https://thegksoft.com/zulope/delete-account/</loc>
     <priority>0.90</priority>
   </url>
 
   <url>
-    <loc>https://thegksoft.com/about/</loc>
-    <priority>0.80</priority>
+    <loc>https://thegksoft.com/zulope/partner/privary-policy/</loc>
+    <priority>0.90</priority>
   </url>
 
   <url>
-    <loc>https://thegksoft.com/contact/</loc>
-    <priority>0.80</priority>
+    <loc>https://thegksoft.com/zulope/partner/delete-account/</loc>
+    <priority>0.90</priority>
   </url>
 
 </urlset>
