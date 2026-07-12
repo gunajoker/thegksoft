@@ -1,0 +1,634 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MindStash — Memory Training App by GK Soft</title>
+    <meta
+      name="description"
+      content="MindStash is a 100% offline memory training app. Build memory palaces, master the PEG system, create mnemonics, and test yourself with quizzes — all on your device."
+    />
+    <meta property="og:title" content="MindStash — Memory Training App" />
+    <meta
+      property="og:description"
+      content="100% offline memory training — PEG system, memory palace, mnemonics, and quizzes. All on your device."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://thegksoft.com/mindstash/" />
+    <meta
+      property="og:image"
+      content="https://thegksoft.com/assets/img/og-image.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/assets/css/styles.css" />
+    <style>
+      /* ── Offline badge ─────────────────────────── */
+      .offline-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: #dcfce7;
+        color: #15803d;
+        border: 1px solid #bbf7d0;
+        border-radius: 9999px;
+        padding: 4px 14px;
+        font-size: 0.82rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+      .offline-badge::before {
+        content: "✓";
+        font-weight: 700;
+      }
+
+      /* ── Screenshot grid ───────────────────────── */
+      .screenshots {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 40px;
+      }
+      .screenshot-slot {
+        width: 180px;
+        flex-shrink: 0;
+      }
+      .screenshot-slot img {
+        width: 100%;
+        height: auto;
+        border-radius: 18px;
+        box-shadow: 0 8px 28px rgba(2, 6, 23, 0.14);
+        display: block;
+      }
+      .screenshot-slot .screenshot-placeholder {
+        width: 100%;
+        aspect-ratio: 9/19.5;
+        background: #f1f5f9;
+        border: 2px dashed #cbd5e1;
+        border-radius: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #94a3b8;
+        font-size: 0.78rem;
+        text-align: center;
+        padding: 12px;
+      }
+      .screenshot-label {
+        text-align: center;
+        font-size: 0.78rem;
+        color: #64748b;
+        margin-top: 8px;
+      }
+
+      /* ── Feature icon cards ────────────────────── */
+      .feature-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        margin-bottom: 14px;
+      }
+      .fi-purple {
+        background: #f3e8ff;
+      }
+      .fi-blue {
+        background: #dbeafe;
+      }
+      .fi-green {
+        background: #dcfce7;
+      }
+      .fi-amber {
+        background: #fef3c7;
+      }
+
+      /* ── How it works steps ────────────────────── */
+      .how-steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 24px;
+        counter-reset: how-step;
+        margin-top: 40px;
+      }
+      .how-step {
+        position: relative;
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: var(--radius);
+        padding: 28px 24px 24px;
+      }
+      .how-step::before {
+        counter-increment: how-step;
+        content: counter(how-step);
+        position: absolute;
+        top: -14px;
+        left: 24px;
+        width: 28px;
+        height: 28px;
+        background: #0ea5e9;
+        color: #fff;
+        border-radius: 9999px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1;
+      }
+      .how-step h4 {
+        margin: 0 0 8px 0;
+        font-size: 0.95rem;
+        color: #0f172a;
+      }
+      .how-step p {
+        margin: 0;
+        font-size: 0.88rem;
+        color: #64748b;
+        line-height: 1.5;
+      }
+
+      /* ── Tech badges ───────────────────────────── */
+      .tech-badges {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 16px;
+      }
+      .tech-badge {
+        background: #f1f5f9;
+        border: 1px solid #e2e8f0;
+        border-radius: 9999px;
+        padding: 4px 14px;
+        font-size: 0.82rem;
+        color: #475569;
+        font-weight: 500;
+      }
+    </style>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="/" aria-label="GK Soft Home">
+          <img
+            class="brand-mark"
+            src="/assets/img/logo.svg"
+            alt=""
+            width="32"
+            height="32"
+          />
+          <span class="brand-name">GK Soft</span>
+        </a>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav"
+          aria-label="Toggle navigation"
+        >
+          <span class="nav-toggle-bars"></span>
+        </button>
+        <nav class="site-nav" id="site-nav" aria-label="Primary">
+          <a class="nav-link" href="#features">Features</a>
+          <a class="nav-link" href="#how-it-works">How It Works</a>
+          <a class="nav-link" href="#techniques">Techniques</a>
+          <a class="nav-link" href="/mindstash/privacy-policy/"
+            >Privacy Policy</a
+          >
+          <a
+            class="nav-link nav-cta"
+            href="https://play.google.com/store"
+            target="_blank"
+            rel="noopener"
+            >Get MindStash ↗</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- ── Hero ──────────────────────────────────── -->
+      <section class="hero">
+        <div class="container hero-inner">
+          <div>
+            <span class="offline-badge">100% Offline — No account needed</span>
+            <p class="eyebrow">A product by GK Soft</p>
+            <h1>Train your memory. Keep everything private.</h1>
+            <p class="lead">
+              MindStash is a fully offline memory training app. Build memory
+              palaces, master the PEG system, create mnemonic links, and
+              challenge yourself with quizzes — all stored only on your device,
+              forever private.
+            </p>
+            <div class="hero-actions">
+              <a
+                class="btn btn-primary"
+                href="https://play.google.com/store"
+                target="_blank"
+                rel="noopener"
+                >Get it on Google Play ↗</a
+              >
+              <a class="btn btn-ghost" href="#features">See what it does</a>
+            </div>
+            <dl class="hero-meta">
+              <div>
+                <dt>Build</dt>
+                <dd>Memory Palaces</dd>
+              </div>
+              <div>
+                <dt>Master</dt>
+                <dd>PEG &amp; Mnemonics</dd>
+              </div>
+              <div>
+                <dt>Test</dt>
+                <dd>With Quizzes</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="hero-card">
+            <div class="hero-card-inner">
+              <img
+                src="/assets/img/mindstash/icon.png"
+                alt="MindStash app icon"
+                style="
+                  width: 96px;
+                  height: 96px;
+                  border-radius: 22px;
+                  margin-bottom: 12px;
+                  object-fit: cover;
+                "
+              />
+              <div class="stat">
+                <div class="stat-label">No internet required</div>
+                <div class="stat-value">Fully offline</div>
+              </div>
+              <div class="stat">
+                <div class="stat-label">No account</div>
+                <div class="stat-value">Zero sign-up</div>
+              </div>
+              <div class="stat">
+                <div class="stat-label">Your data stays</div>
+                <div class="stat-value">On your device</div>
+              </div>
+              <div class="hero-card-divider"></div>
+              <p class="hero-card-note">
+                Available on Android. All data is stored locally — nothing is
+                ever sent to a server.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Screenshots ───────────────────────────── -->
+      <section class="section section-muted">
+        <div class="container">
+          <div class="section-head">
+            <h2>See MindStash in action</h2>
+            <p>
+              A clean, distraction-free interface built for focused memory work.
+            </p>
+          </div>
+          <div class="screenshots">
+            <div class="screenshot-slot">
+              <img
+                src="/assets/img/mindstash/screen-1.jpg"
+                alt="MindStash screen 1"
+              />
+              <p class="screenshot-label">Screen 1</p>
+            </div>
+            <div class="screenshot-slot">
+              <img
+                src="/assets/img/mindstash/screen-2.jpg"
+                alt="MindStash screen 2"
+              />
+              <p class="screenshot-label">Screen 2</p>
+            </div>
+            <div class="screenshot-slot">
+              <img
+                src="/assets/img/mindstash/screen-3.jpg"
+                alt="MindStash screen 3"
+              />
+              <p class="screenshot-label">Screen 3</p>
+            </div>
+            <div class="screenshot-slot">
+              <img
+                src="/assets/img/mindstash/screen-4.jpg"
+                alt="MindStash screen 4"
+              />
+              <p class="screenshot-label">Screen 4</p>
+            </div>
+            <div class="screenshot-slot">
+              <img
+                src="/assets/img/mindstash/screen-5.jpg"
+                alt="MindStash screen 5"
+              />
+              <p class="screenshot-label">Screen 5</p>
+            </div>
+            <div class="screenshot-slot">
+              <img
+                src="/assets/img/mindstash/screen-6.jpg"
+                alt="MindStash screen 6"
+              />
+              <p class="screenshot-label">Screen 6</p>
+            </div>
+            <div class="screenshot-slot">
+              <img
+                src="/assets/img/mindstash/screen-7.jpg"
+                alt="MindStash screen 7"
+              />
+              <p class="screenshot-label">Screen 7</p>
+            </div>
+            <div class="screenshot-slot">
+              <img
+                src="/assets/img/mindstash/screen-8.jpg"
+                alt="MindStash screen 8"
+              />
+              <p class="screenshot-label">Screen 8</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── What is MindStash ─────────────────────── -->
+      <section class="section" id="about">
+        <div class="container">
+          <div class="section-head">
+            <h2>What is MindStash?</h2>
+            <p>
+              A personal memory training toolkit that works entirely on your
+              phone — no internet, no account, no data shared with anyone.
+            </p>
+          </div>
+          <div class="split">
+            <div>
+              <p class="lead-sm">
+                Most memory apps are online, require sign-ups, and sync your
+                data to external servers. MindStash is different — it's built
+                for people who take privacy seriously and want a
+                distraction-free tool to genuinely improve their memory.
+              </p>
+              <p class="lead-sm">
+                Whether you're a student memorising facts, a professional
+                learning new skills, or just someone who wants a sharper memory,
+                MindStash gives you battle-tested memory techniques in one
+                private, offline space.
+              </p>
+              <div class="tech-badges">
+                <span class="tech-badge">100% Offline</span>
+                <span class="tech-badge">No Sign-up</span>
+                <span class="tech-badge">No Ads</span>
+                <span class="tech-badge">No Tracking</span>
+                <span class="tech-badge">Android</span>
+              </div>
+            </div>
+            <div>
+              <ol class="steps">
+                <li>Open MindStash — no login, straight in.</li>
+                <li>Choose a technique: PEG, Mnemonics, or Memory Palace.</li>
+                <li>Add your items — numbers, words, facts, or images.</li>
+                <li>Build links and associations using guided prompts.</li>
+                <li>Test yourself with quizzes to lock in retention.</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Features ──────────────────────────────── -->
+      <section class="section section-muted" id="features">
+        <div class="container">
+          <div class="section-head">
+            <h2>Built to make memory stick</h2>
+            <p>
+              Four powerful techniques, one simple app. Everything you need to
+              train, review, and recall — offline, always.
+            </p>
+          </div>
+          <div class="grid cards-3">
+            <article class="card">
+              <div class="feature-icon fi-amber">🔢</div>
+              <h3>PEG System</h3>
+              <p>
+                Assign vivid images to numbers 0–99 and use them to memorise
+                long sequences, dates, PINs, and ordered lists at speed. Build
+                your own custom PEG table or use the built-in Major System
+                template.
+              </p>
+            </article>
+            <article class="card">
+              <div class="feature-icon fi-blue">🔗</div>
+              <h3>Mnemonics</h3>
+              <p>
+                Create keyword links, acronyms, and story chains for vocabulary,
+                definitions, and concepts. The app guides you to form vivid,
+                memorable associations that actually stick.
+              </p>
+            </article>
+            <article class="card">
+              <div class="feature-icon fi-purple">🏛️</div>
+              <h3>Memory Palace</h3>
+              <p>
+                Build virtual journeys through familiar places — rooms, streets,
+                or routes — and place information at each stop. The oldest and
+                most powerful memory technique, now in your pocket.
+              </p>
+            </article>
+            <article class="card">
+              <div class="feature-icon fi-green">📝</div>
+              <h3>Quizzes</h3>
+              <p>
+                Test your recall with auto-generated quizzes based on what
+                you've stored. Track scores over time and see exactly where you
+                need more practice — all offline, all on-device.
+              </p>
+            </article>
+            <article class="card">
+              <div class="feature-icon fi-amber">🔒</div>
+              <h3>Total Privacy</h3>
+              <p>
+                No account, no cloud sync, no analytics. Every memory palace,
+                PEG list, and mnemonic lives only on your device. Uninstall and
+                it's gone — no trace anywhere else.
+              </p>
+            </article>
+            <article class="card">
+              <div class="feature-icon fi-blue">⚡</div>
+              <h3>Works Everywhere</h3>
+              <p>
+                No Wi-Fi, no mobile data, no signal needed. MindStash works in a
+                plane, a basement, or anywhere else — because everything is
+                already on your phone.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── How it works ──────────────────────────── -->
+      <section class="section" id="how-it-works">
+        <div class="container">
+          <div class="section-head">
+            <h2>How it works</h2>
+            <p>
+              Start memorising in minutes. No setup, no onboarding, no account.
+            </p>
+          </div>
+          <div class="how-steps">
+            <div class="how-step">
+              <h4>Pick a technique</h4>
+              <p>
+                Choose from PEG System, Mnemonics, or Memory Palace depending on
+                what you want to memorise.
+              </p>
+            </div>
+            <div class="how-step">
+              <h4>Add your content</h4>
+              <p>
+                Enter numbers, words, facts, or concepts you want to remember.
+                The app structures them for you.
+              </p>
+            </div>
+            <div class="how-step">
+              <h4>Build associations</h4>
+              <p>
+                Link your content to vivid images, stories, or locations using
+                guided prompts to make it memorable.
+              </p>
+            </div>
+            <div class="how-step">
+              <h4>Review &amp; quiz</h4>
+              <p>
+                Run a quiz to test your recall. See your score, spot weak
+                points, and review until it sticks.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Techniques deep-dive ──────────────────── -->
+      <section class="section section-muted" id="techniques">
+        <div class="container">
+          <div class="section-head">
+            <h2>The techniques behind MindStash</h2>
+            <p>
+              Each method is centuries old, proven by memory champions, and now
+              available without an internet connection.
+            </p>
+          </div>
+          <div class="split">
+            <div>
+              <h3 style="margin-top: 0">PEG System</h3>
+              <p class="lead-sm">
+                The PEG system (including the Major System) maps digits to
+                consonant sounds, letting you convert any number into a
+                memorable word or image. Once your PEG table is set, you can
+                memorise PINs, dates, phone numbers, and ranked lists in
+                seconds.
+              </p>
+              <h3>Memory Palace (Method of Loci)</h3>
+              <p class="lead-sm">
+                Used by ancient Greek orators and modern memory champions alike,
+                the Memory Palace places information at specific locations along
+                a familiar mental route. Walking the route in your mind
+                retrieves the information in perfect order.
+              </p>
+            </div>
+            <div>
+              <h3 style="margin-top: 0">Mnemonics</h3>
+              <p class="lead-sm">
+                Mnemonics are memory shortcuts — acronyms, rhymes, keyword
+                links, and story chains that tie new information to something
+                you already know. MindStash helps you craft and store these
+                links so review is instant.
+              </p>
+              <h3>Spaced Quizzing</h3>
+              <p class="lead-sm">
+                Testing yourself is the most effective way to transfer
+                information to long-term memory. MindStash quizzes draw from
+                everything you've stored and flag the items you struggle with,
+                so you spend time on what matters.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── CTA ───────────────────────────────────── -->
+      <section class="section">
+        <div class="container">
+          <div class="cta">
+            <div class="cta-copy">
+              <h3>Ready to train your memory?</h3>
+              <p>
+                Download MindStash for free on Android. No internet needed, no
+                account required — just open and start.
+              </p>
+            </div>
+            <div class="cta-actions">
+              <a
+                class="btn btn-primary"
+                href="https://play.google.com/store"
+                target="_blank"
+                rel="noopener"
+                >Get it on Google Play ↗</a
+              >
+              <a class="btn btn-ghost" href="/mindstash/privacy-policy/"
+                >Privacy Policy</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <div class="footer-title">MindStash</div>
+          <div class="footer-sub">by GK Soft</div>
+        </div>
+        <div class="footer-cols">
+          <div class="footer-col">
+            <div class="footer-col-title">App</div>
+            <a class="footer-link" href="#features">Features</a>
+            <a class="footer-link" href="#how-it-works">How It Works</a>
+            <a class="footer-link" href="#techniques">Techniques</a>
+          </div>
+          <div class="footer-col">
+            <div class="footer-col-title">Legal</div>
+            <a class="footer-link" href="/mindstash/privacy-policy/"
+              >Privacy Policy</a
+            >
+            <a class="footer-link" href="/mindstash/delete-data/"
+              >Delete Data</a
+            >
+          </div>
+          <div class="footer-col">
+            <div class="footer-col-title">GK Soft</div>
+            <a class="footer-link" href="/">Home</a>
+            <a class="footer-link" href="/contact/">Contact</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container">
+          &copy; <span id="yr"></span> GK Soft. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <script src="/assets/js/main.js"></script>
+    <script>
+      document.getElementById("yr").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
